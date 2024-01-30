@@ -26,7 +26,7 @@ function App() {
     useEffect(() => {
         setInterval(() => {
             setNumberString(getRandomNumber(100,999).toString())
-        },1000)
+        },2000)
     }, [])
 
   return (
