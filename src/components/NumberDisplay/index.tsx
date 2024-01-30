@@ -1,6 +1,5 @@
 import { FC, useEffect, useState } from "react";
 import styles from "./styles.module.scss"
-import {isNativeError} from "node:util/types";
 
 const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -9,15 +8,13 @@ const digitRegexp = /\d/;
 interface Props {
     numberString: string; // '123'
 }
-
 const NumberDisplay: FC<Props> = (props) => {
-
     const { numberString } = props
 
     return (
         <div className={styles.numberDisplay}>
             {/* ['1', '2', '3']*/}
-            {numberString.split('').map((digitStr,index) => (
+            {numberString.split('').map((digitStr, index) => (
                 <div className={styles.digitWrapper}>
                     {
                         digitRegexp.test(digitStr) ? (
@@ -29,15 +26,15 @@ const NumberDisplay: FC<Props> = (props) => {
                                 {digits.map(digit => (
                                     <span className={styles.digit} key={digit}>{digit}</span>
                                 ))}
-                             </span>
+                            </span>
                         ) : (
                             // 展示普通字符
-                            <span>{ digitStr }</span>
+                            <span>{digitStr}</span>
                         )
                     }
                 </div>
-    ))
-}
+            ))
+            }
         </div >
     )
 }
